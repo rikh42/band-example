@@ -3,12 +3,15 @@
 {% block header %}
 <div class="page-header">
 	<h1>Hello {{name}}</h1>
-
 	<p>Says hello to you...</p>
 </div>
 {% endblock %}
 
 {% block content %}
+{% if app.request.session.hasFlash('notice') %}
+<h3> Notice : {{app.request.session.flash('notice')}}</h3>
+{% endif %}
+
 <h2>How this page works</h2>
 
 <p>The framework matches the URL to the HelloAction of the DemoController using

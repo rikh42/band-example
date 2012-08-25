@@ -53,6 +53,9 @@ class DemoController extends Controller
             $mydata = $form->getData();
             // Save data from the form here...
 
+            // Set a flash message
+            $this->getRequest()->getSession()->setFlash('notice', 'Form Submitted OK');
+
             // redirect to hello
             return $this->redirectResponse('hello', array('name'=>'Band'));
         }
